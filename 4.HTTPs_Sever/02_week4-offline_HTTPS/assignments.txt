@@ -1,0 +1,4 @@
+1. https://github.com/100xdevs-cohort-2/assignments/blob/master/week-2/02-nodejs/fileServer.js
+
+
+2. https://github.com/100xdevs-cohort-2/assignments/tree/master/week-2/02-nodejs/solutions
