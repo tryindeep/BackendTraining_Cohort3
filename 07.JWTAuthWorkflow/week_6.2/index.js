@@ -11,9 +11,9 @@ const logger = (req, res,next) => {
   next();
 }
 
-app.use(logger);
+// app.use(logger);
 
-
+//we send the file in frontend
 app.get("/", function (req,res){
     res.sendFile(__dirname+"/public/index.html")
 } );
@@ -67,6 +67,9 @@ app.post("/signin", (req, res) => {
 // Authentication Midlleware
 const authentication = (req, res, next) => {
   const token = req.headers.token;
+   if (!token) {  // ✅ guard check before verify
+    return res.status(401).json({ message: "No token provided" });
+  }
   const decodedInformation = jwt.verify(token, JWT_SECRET);
   if(decodedInformation){
     req.username = decodedInformation.username;
@@ -80,6 +83,7 @@ const authentication = (req, res, next) => {
 
 
 app.get("/me", authentication, (req, res) => {
+  
   const foundUser = users.find((user) => user.username == req.username);
   if(foundUser){
     res.json({
