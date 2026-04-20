@@ -45,9 +45,6 @@ app.post("/signup", async (req, res) => {
         errors : [ if any error]
       } 
   */
-
-
-
   if (!parseDataWithSuccess.success) {
     res.json({
       message: "Incorrect format",
@@ -94,7 +91,7 @@ app.post("/signin", async (req, res) => {
   });
 
   if (!user) {
-    res.json(403).json({
+    res.status(403).json({
       massage: "User does not exits in our database",
     });
     return;
