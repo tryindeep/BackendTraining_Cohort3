@@ -227,20 +227,7 @@ console.log(player);
 
 
 
-// ------------------------Arrays In TypeScript-------------------------//
 
-// function getMax(nums: number[]): number {
-//    let maxValue = nums[0];
-
-//    for(let i = 0; i < nums.length ; i++){
-
-//     if(nums[i] > maxValue){
-//         maxValue = nums[i];
-//     }
-//    }
-//    return maxValue;
-// }
-// getMax([1, 2, 3]);
 
 
 interface Address {
