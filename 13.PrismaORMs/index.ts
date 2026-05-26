@@ -21,7 +21,7 @@ app.get("/todos/:id" , async(req , res) => {
         },
         select : {
             todos: true,
-            username: true
+            username: true   
         }
     });
     res.json({
