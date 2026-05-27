@@ -11,7 +11,7 @@ export default function Home() {
             <br />
             <Link className="text-md border m-2" href="/signin"> Sign in Todo application</Link>
               <br />
-            <Link className="text-md border m-2" href="/signup"> Sign in Todo application</Link>
+            <Link className="text-md border m-2" href="/signup"> Sign up Todo application</Link>
            </div>  
       </div>
     </div>
