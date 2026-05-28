@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hydration
 
-## Getting Started
+**What is Hydration in Next.js?**
 
-First, run the development server:
+Hydration is the process by which a client-side JavaScript framework (such as React) takes over an already rendered HTML page and makes it interactive. In a Next.js application, pages are often server-rendered (SSR) or statically generated (SSG). The server sends a fully formed HTML document to the browser, allowing users to see meaningful content quickly (which is great for SEO and performance). Once the page arrives in the browser, React’s JavaScript bundle “hydrates” that static HTML by attaching event listeners and other interactive behaviors so that the page becomes a fully functional React application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+"use client";
+import axios from "axios";
+import { useEffect } from "react"
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+export function Refresh() {
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    useEffect(() => {
+        axios.get("https://jsonplaceholder.typicode.com/posts/1");
+    }, [])
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    return <div>
+        <button onClick={() => {
+            console.log("onclick pressed")
+        }}>click me</button>
+        hello refresh component
+    </div>
+}
